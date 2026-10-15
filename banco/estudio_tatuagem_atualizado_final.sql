@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `estudio_tatuagem`
+-- Banco de dados: `estudio_tatuagem_atualizado_final`
 --
-CREATE DATABASE IF NOT EXISTS `estudio_tatuagem` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `estudio_tatuagem`;
+CREATE DATABASE IF NOT EXISTS `estudio_tatuagem_atualizado_final` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `estudio_tatuagem_atualizado_final`;
 
 -- --------------------------------------------------------
 
