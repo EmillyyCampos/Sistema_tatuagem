@@ -1,55 +1,391 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Senioridade — Estúdio de Tatuagem</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senioridade | Estúdio de Tatuagem</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #292330;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(244, 240, 247, 0.88), rgba(244, 240, 247, 0.92)),
+                url("./img/fundo-tattoo.png") center center / cover fixed no-repeat;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: #30243d;
+            padding: 15px 5%;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar .container-fluid {
+            padding: 0;
+        }
+
+        .navbar-brand {
+            color: #ffffff !important;
+            font-size: 21px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .navbar-brand:hover {
+            color: #d8baff !important;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* LINKS BRANCOS COM EFEITO LILÁS NO HOVER */
+        .navbar-links a {
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #d8baff !important;
+        }
+
+        /* BOTÃO DO MENU MOBILE */
+        .navbar-toggler {
+            background-color: transparent !important;
+            border: 1px solid #d8baff;
+            border-radius: 8px;
+            padding: 5px 9px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.15rem rgba(216, 186, 255, 0.3);
+        }
+
+        .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        /* BOTÃO SAIR */
+        .btn-sair {
+            border: 1px solid #d8baff;
+            color: #d8baff;
+            background: transparent;
+            border-radius: 8px;
+            padding: 7px 14px;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .btn-sair:hover {
+            background: #7952a3;
+            color: #ffffff;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .container-principal {
+            width: 90%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .cabecalho {
+            margin-bottom: 30px;
+        }
+
+        .cabecalho h1 {
+            color: #49345e;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .cabecalho p {
+            color: #81758b;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* FORMULÁRIO E TABELA */
+        .card-conteudo {
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(121, 82, 163, 0.15);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 5px 20px rgba(48, 36, 61, 0.08);
+        }
+
+        .titulo-card {
+            color: #49345e;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        /* CAMPOS */
+        .form-label {
+            color: #49345e;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            border: 1px solid #d8cde3;
+            border-radius: 9px;
+            padding: 11px 13px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-control:focus {
+            border-color: #7952a3;
+            box-shadow: 0 0 0 0.2rem rgba(121, 82, 163, 0.15);
+        }
+
+        /* BOTÃO CADASTRAR */
+        .btn-roxo {
+            background: #7952a3;
+            border: none;
+            color: #ffffff;
+            padding: 11px 22px;
+            border-radius: 9px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn-roxo:hover {
+            background: #593879;
+            color: #ffffff;
+        }
+
+        /* TABELA */
+        .table-responsive {
+            border-radius: 10px;
+        }
+
+        .table {
+            margin-bottom: 0;
+            vertical-align: middle;
+        }
+
+        .table thead th {
+            background: #49345e;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .table tbody td {
+            padding: 13px 14px;
+            color: #292330;
+            border-color: #eee7f4;
+            font-size: 14px;
+        }
+
+        .table tbody tr:hover {
+            background: #f8f4fc;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1199px) {
+            .navbar-links {
+                gap: 12px;
+            }
+
+            .navbar-links a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-links {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-top: 15px;
+            }
+
+            .navbar-links a {
+                font-size: 16px;
+            }
+
+            .btn-sair {
+                margin-top: 3px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container-principal {
+                width: 94%;
+                margin: 28px auto;
+            }
+
+            .cabecalho h1 {
+                font-size: 26px;
+            }
+
+            .card-conteudo {
+                padding: 20px;
+            }
+
+            .titulo-card {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
-<body class="container py-4">
 
-    <nav class="navbar navbar-dark bg-dark mb-4">
-  <div class="container">
-    <span class="navbar-brand">Estúdio de Tatuagem</span>
-    <div>
-      <a href="clientes.html" class="text-light me-3">Clientes</a>
-      <a href="senioridade.html" class="text-light me-3">Senioridade</a>
-      <a href="estilos.html" class="text-light me-3">Estilos</a>
-      <a href="tatuadores.html" class="text-light me-3">Tatuadores</a>
-      <a href="agendamentos.html" class="text-light">Agendamentos</a>
-      <button onclick="sair()" class="btn btn-outline-light btn-sm">Sair</button>
+<body>
 
-    </div>
-  </div>
-</nav>
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
 
-  <h1>Senioridade</h1>
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="bi bi-flower1"></i>
+                Estúdio de Tatuagem
+            </a>
 
-  <!-- Formulário para cadastrar nova senioridade -->
-  <form id="form-senioridade" class="row g-2 mt-2 mb-4">
-    <div class="col-md-4">
-      <input type="text" id="nome" class="form-control" placeholder="Nome (ex: Júnior)" required>
-    </div>
-    <div class="col-md-2">
-      <button id="btn-submit-senioridade" type="submit" class="btn btn-primary w-100">Cadastrar</button>
-    </div>
-  </form>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuNavbar"
+                aria-controls="menuNavbar"
+                aria-expanded="false"
+                aria-label="Abrir menu">
 
-  <!-- Tabela onde as senioridades vão aparecer -->
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody id="corpo-tabela">
-      <!-- as senioridades vão aparecer aqui -->
-    </tbody>
-  </table>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <script src="js/auth.js"></script>
-  <script src="js/senioridade.js"></script>
+            <div class="collapse navbar-collapse" id="menuNavbar">
+                <div class="navbar-links ms-auto">
+
+                    <a href="clientes.html">Clientes</a>
+                    <a href="senioridade.html">Senioridade</a>
+                    <a href="estilos.html">Estilos</a>
+                    <a href="tatuadores.html">Tatuadores</a>
+                    <a href="agendamentos.html">Agendamentos</a>
+
+                    <button class="btn-sair" onclick="sair()">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sair
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <main class="container-principal">
+
+        <header class="cabecalho">
+            <h1>
+                <i class="bi bi-award"></i>
+                Senioridade
+            </h1>
+
+            <p>Cadastre e consulte os níveis de senioridade dos tatuadores.</p>
+        </header>
+
+        <!-- FORMULÁRIO -->
+        <section class="card-conteudo">
+
+            <h2 class="titulo-card">
+                <i class="bi bi-plus-circle"></i>
+                Cadastrar senioridade
+            </h2>
+
+            <form id="form-senioridade">
+
+                <div class="row g-3 align-items-end">
+
+                    <div class="col-md-8">
+                        <label for="nome" class="form-label">
+                            Nome da senioridade
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="nome"
+                            name="nome"
+                            placeholder="Ex.: Júnior, Pleno ou Sênior"
+                            required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <button
+                            type="submit"
+                            class="btn btn-roxo w-100"
+                            id="btn-submit-senioridade">
+
+                            <i class="bi bi-check-circle"></i>
+                            Cadastrar
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+        </section>
+
+        <!-- TABELA -->
+        <section class="card-conteudo">
+
+            <h2 class="titulo-card">
+                <i class="bi bi-list-ul"></i>
+                Senioridades cadastradas
+            </h2>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome da senioridade</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="corpo-tabela">
+                    </tbody>
+
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/senioridade.js"></script>
 
 </body>
 </html>

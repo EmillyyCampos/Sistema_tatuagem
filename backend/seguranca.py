@@ -1,19 +1,23 @@
+
 # ============================================================
 # seguranca.py — Verificação do token JWT
-# Descrição: Função usada pelas rotas protegidas para conferir
-#            se quem está fazendo a requisição tem um token válido.
 # ============================================================
 
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import jwt
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITMO = "HS256"
 
 # HTTPBearer() é o que faz o botão "Authorize" aparecer no /docs
 esquema_token = HTTPBearer()
+
 
 # "Segurança de porta" — confere se o token que veio na requisição é válido
 def verificar_token(credenciais: HTTPAuthorizationCredentials = Depends(esquema_token)):
