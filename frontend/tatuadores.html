@@ -105,38 +105,7 @@
             margin-bottom: 27px;
         }
 
-        /* Banner */
-        .banner-tatuadores {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 28px 30px;
-            margin-bottom: 27px;
-            border-radius: 14px;
-            color: white;
-            background: linear-gradient(120deg, #49345e, #7952a3);
-            box-shadow: 0 7px 20px rgba(73, 52, 94, 0.17);
-        }
-
-        .banner-tatuadores h2 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .banner-tatuadores p {
-            font-size: 14px;
-            line-height: 1.7;
-            margin: 0;
-            color: #eee3f8;
-        }
-
-        .banner-icone {
-            flex-shrink: 0;
-            font-size: 65px;
-            color: #d8baff;
-        }
+       
 
         /* Cards */
         .card-conteudo {
@@ -258,6 +227,7 @@
             font-size: 14px;
             font-weight: 500;
             transition: 0.2s;
+            margin-top: 15px;
         }
 
         .btn-cadastrar:hover {
@@ -366,17 +336,6 @@
                 font-size: 24px;
             }
 
-            .banner-tatuadores {
-                padding: 23px;
-            }
-
-            .banner-tatuadores h2 {
-                font-size: 19px;
-            }
-
-            .banner-icone {
-                font-size: 48px;
-            }
 
             .card-conteudo {
                 padding: 18px;
@@ -410,7 +369,7 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand" href="dashboard.html">
-                <i class="bi bi-stars"></i>
+            
                 Estúdio de Tatuagem
             </a>
 
@@ -440,31 +399,6 @@
         <p class="subtitulo">
             Gerencie a equipe, as especialidades e os dados dos profissionais do estúdio.
         </p>
-
-        <!-- Banner -->
-        <section class="banner-tatuadores">
-            <div>
-                <h2>Talento em cada traço.</h2>
-                <p>
-                    Organize os profissionais do estúdio e conheça os estilos
-                    que cada tatuador domina.
-                </p>
-            </div>
-
-            <i class="bi bi-brush banner-icone"></i>
-        </section>
-
-        <!-- Formulário de cadastro -->
-        <section class="card-conteudo">
-
-            <h2 class="titulo-card">
-                <i class="bi bi-person-plus"></i>
-                Cadastro de tatuador
-            </h2>
-
-            <p class="descricao-card">
-                Preencha os dados do profissional e selecione suas especialidades.
-            </p>
 
             <form id="form-tatuador" class="row g-3">
 
